@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="cocur_blog.dropbox.api_client.class">Dropbox_API</parameter>
+        <parameter key="cocur_blog.dropbox.oauth.class">Dropbox_OAuth_Curl</parameter>
+    </parameters>
+
+    <services>
+
+        <service id="cocur_blog.dropbox.oauth" class="%cocur_blog.dropbox.oauth.class%" public="false">
+            <argument>%cocur_blog.dropbox.consumer_key%</argument>
+            <argument>%cocur_blog.dropbox.consumer_secret%</argument>
+        </service>
+
+        <service id="cocur_blog.dropbox.api_client" class="%cocur_blog.dropbox.api_client.class%">
+            <argument type="service" id="cocur_blog.dropbox.oauth" />
+        </service>
+
+    </services>
+
+</container>

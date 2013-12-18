@@ -41,7 +41,7 @@ class CocurPageExtension extends Extension
         $config = $this->processConfiguration($configuration, $configs);
 
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config/services'));
-        foreach ([ 'content-loader', 'controller', 'fm-parser' ] as $key) {
+        foreach ([ 'content-compiler', 'content-loader', 'controller', 'fm-parser' ] as $key) {
             $loader->load(sprintf('%s.xml', $key));
         }
 

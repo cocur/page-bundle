@@ -74,6 +74,7 @@ class ContentLoader
         $file = new Content();
         $file->setOptions($this->getOptions($lines));
         $file->setSource($this->getSource($lines));
+        $file->setFormat($this->getFormat($key));
 
         return $file;
     }
@@ -153,5 +154,17 @@ class ContentLoader
         }
 
         return $source;
+    }
+
+    /**
+     * Returns the format of the file.
+     *
+     * @param string $filename Filename.
+     *
+     * @return string Format (file extension) of the file.
+     */
+    protected function getFormat($filename)
+    {
+        return substr($filename, strrpos($filename, '.')+1);
     }
 }

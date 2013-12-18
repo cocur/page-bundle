@@ -14,6 +14,7 @@ namespace Cocur\Bundle\PageBundle\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
 use Cocur\Bundle\PageBundle\Content\ContentLoader;
+use Cocur\Bundle\PageBundle\ContentCompiler\CompilerCollection;
 
 /**
  * PageController
@@ -30,13 +31,17 @@ class PageController
     /** @var ContentLoader */
     private $contentLoader;
 
+    /** @var CompilerCollection */
+    private $compilers;
+
     /**
      * @param Filesystem $filesystem
      * @param string     $basePath
      */
-    public function __construct(ContentLoader $contentLoader)
+    public function __construct(ContentLoader $contentLoader, CompilerCollection $compilers)
     {
         $this->contentLoader = $contentLoader;
+        $this->compilers = $compilers;
     }
 
     /**
@@ -47,7 +52,14 @@ class PageController
     public function pageAction($key)
     {
         $content = $this->contentLoader->load($key);
+        $compiler = $this->compilers->get($content->getFormat());
 
-        return new Response($content->getSource());
+        if (null === $compiler) {
+            throw new \RuntimeException(
+                sprintf('Could not find compiler for source in "%s" format.', $content->getFormat())
+            );
+        }
+
+        return new Response($compiler->compile($content->getSource()));
     }
 }

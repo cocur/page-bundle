@@ -11,7 +11,7 @@
 
 namespace Cocur\Bundle\PageBundle\ContentCompiler;
 
-use \Michelf\Markdown;
+use Michelf\Markdown;
 
 /**
  * MarkdownCompiler

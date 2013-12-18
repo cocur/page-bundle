@@ -14,6 +14,7 @@ namespace Cocur\Bundle\PageBundle;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
+use Cocur\Bundle\PageBundle\DependencyInjection\Compiler\ContentCompilerPass;
 use Cocur\Bundle\PageBundle\DependencyInjection\Compiler\FmParserPass;
 
 /**
@@ -36,6 +37,7 @@ class CocurPageBundle extends Bundle
     {
         parent::build($container);
 
+        $container->addCompilerPass(new ContentCompilerPass());
         $container->addCompilerPass(new FmParserPass());
     }
 }

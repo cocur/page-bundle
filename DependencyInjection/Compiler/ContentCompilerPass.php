@@ -16,7 +16,7 @@ use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\Reference;
 
 /**
- * FmParserPass
+ * ContentCompilerPass
  *
  * @package    cocur/page-bundle
  * @subpackage DependencyInjection
@@ -27,20 +27,20 @@ use Symfony\Component\DependencyInjection\Reference;
  *
  * @codeCoverageIgnore
  */
-class FmParserPass implements CompilerPassInterface
+class ContentCompilerPass implements CompilerPassInterface
 {
     /**
      * {@inheritDoc}
      */
     public function process(ContainerBuilder $container)
     {
-        if (!$container->hasDefinition('cocur_page.fm_parser_factory')) {
+        if (!$container->hasDefinition('cocur_page.content_compiler_collection')) {
             return;
         }
 
-        $definition = $container->getDefinition('cocur_page.fm_parser_factory');
+        $definition = $container->getDefinition('cocur_page.content_compiler_collection');
 
-        foreach ($container->findTaggedServiceIds('cocur.fm_parser') as $id => $attributes) {
+        foreach ($container->findTaggedServiceIds('cocur.content_compiler') as $id => $attributes) {
             $definition->addMethodCall('add', [ new Reference($id) ]);
         }
     }

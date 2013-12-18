@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+
+        <parameter key="cocur_page.content_compiler_collection.class">Cocur\Bundle\PageBundle\ContentCompiler\CompilerCollection</parameter>
+
+        <parameter key="cocur_page.content_compiler.markdown.class">Cocur\Bundle\PageBundle\ContentCompiler\MarkdownCompiler</parameter>
+        <parameter key="cocur_page.content_compiler.markdown_extra.class">Cocur\Bundle\PageBundle\ContentCompiler\MarkdownExtraCompiler</parameter>
+        <parameter key="cocur_page.content_compiler.plain.class">Cocur\Bundle\PageBundle\ContentCompiler\PlainCompiler</parameter>
+    </parameters>
+
+    <services>
+
+        <service id="cocur_page.content_compiler_collection" class="%cocur_page.content_compiler_collection.class%">
+        </service>
+
+        <service id="cocur_page.content_compiler.markdown" class="%cocur_page.content_compiler.markdown.class%">
+            <tag name="cocur.content_compiler" />
+        </service>
+
+        <service id="cocur_page.content_compiler.markdown_extra" class="%cocur_page.content_compiler.markdown_extra.class%">
+            <tag name="cocur.content_compiler" />
+        </service>
+
+        <service id="cocur_page.content_compiler.plain" class="%cocur_page.content_compiler.plain.class%">
+            <tag name="cocur.content_compiler" />
+        </service>
+
+    </services>
+
+</container>

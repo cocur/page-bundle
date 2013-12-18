@@ -27,6 +27,9 @@ class Content
     private $options;
 
     /** @var string */
+    private $format;
+
+    /** @var string */
     private $source;
 
     /**
@@ -47,6 +50,30 @@ class Content
     public function getOptions()
     {
         return $this->options;
+    }
+
+    /**
+     * Sets the format of the source.
+     *
+     * @param string $format Format of the source.
+     *
+     * @return Content
+     */
+    public function setFormat($format)
+    {
+        $this->format = $format;
+
+        return $this;
+    }
+
+    /**
+     * Returns the format of the source.
+     *
+     * @return string Format of the source.
+     */
+    public function getFormat()
+    {
+        return $this->format;
     }
 
     /**

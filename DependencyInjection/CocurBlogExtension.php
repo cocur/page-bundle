@@ -40,33 +40,11 @@ class CocurBlogExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
-        $loader = new Loader\XmlFileLoader(
-            $container,
-            new FileLocator(__DIR__.'/../Resources/config/services')
-        );
-        foreach ([ 'command', 'controller', 'dropbox' ] as $key) {
+        $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config/services'));
+        foreach ([ 'content-loader', 'controller', 'fm-parser' ] as $key) {
             $loader->load(sprintf('%s.xml', $key));
         }
 
         $container->setParameter('cocur_blog.storage.base_path', $config['storage']['base_path']);
-        $container->setParameter('cocur_blog.dropbox.consumer_key', $config['dropbox']['consumer_key']);
-        $container->setParameter('cocur_blog.dropbox.consumer_secret', $config['dropbox']['consumer_secret']);
-
-        if (true === isset($config['dropbox']['token']) && true === isset($config['dropbox']['token_secret'])) {
-            $this->setDropboxOAuthToken($config, $container);
-        }
-    }
-
-    /**
-     * @param array            $config
-     * @param ContainerBuilder $container
-     */
-    protected function setDropboxOAuthToken(array $config, ContainerBuilder $container)
-    {
-        $dropboxOAuth = $container->getDefinition('cocur_blog.dropbox.oauth');
-         $dropboxOAuth->addMethodCall(
-            'setToken',
-            [ $config['dropbox']['token'], $config['dropbox']['token_secret'] ]
-        );
     }
 }

@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="cocur_blog.fm_parser.yaml.class">Cocur\Bundle\BlogBundle\FmParser\YamlFmParser</parameter>
+        <parameter key="cocur_blog.fm_parser.json.class">Cocur\Bundle\BlogBundle\FmParser\JsonFmParser</parameter>
+        <parameter key="cocur_blog.fm_parser_factory.class">Cocur\Bundle\BlogBundle\FmParser\FmParserFactory</parameter>
+    </parameters>
+
+    <services>
+
+        <service id="cocur_blog.fm_parser.yaml" class="%cocur_blog.fm_parser.yaml.class%">
+            <tag name="cocur.fm_parser" />
+        </service>
+
+        <service id="cocur_blog.fm_parser.json" class="%cocur_blog.fm_parser.json.class%">
+            <tag name="cocur.fm_parser" />
+        </service>
+
+        <service id="cocur_blog.fm_parser_factory" class="%cocur_blog.fm_parser_factory.class%">
+        </service>
+
+    </services>
+
+</container>

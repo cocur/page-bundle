@@ -11,8 +11,7 @@
     <services>
 
         <service id="cocur_blog.controller.page" class="%cocur_blog.controller.page.class%">
-            <argument type="service" id="blog_storage_filesystem" />
-            <argument>%cocur_blog.storage.base_path%</argument>
+            <argument type="service" id="cocur_blog.content_loader" />
         </service>
 
     </services>

@@ -11,8 +11,9 @@
 
 namespace Cocur\Bundle\BlogBundle\Controller;
 
-use Gaufrette\Filesystem;
 use Symfony\Component\HttpFoundation\Response;
+
+use Cocur\Bundle\BlogBundle\Content\ContentLoader;
 
 /**
  * PageController
@@ -26,34 +27,27 @@ use Symfony\Component\HttpFoundation\Response;
  */
 class PageController
 {
-    /** @var Filesystem */
-    private $filesystem;
-
-    /** @var string */
-    private $basePath;
+    /** @var ContentLoader */
+    private $contentLoader;
 
     /**
      * @param Filesystem $filesystem
+     * @param string     $basePath
      */
-    public function __construct(Filesystem $filesystem, $basePath)
+    public function __construct(ContentLoader $contentLoader)
     {
-        $this->filesystem = $filesystem;
-        $this->basePath   = $basePath;
+        $this->contentLoader = $contentLoader;
     }
 
     /**
-     * @param string $filename
+     * @param string $key
      *
      * @return Response
      */
-    public function pageAction($filename)
+    public function pageAction($key)
     {
-        $pathname = sprintf('%s/%s', $this->basePath, $filename);
+        $content = $this->contentLoader->load($key);
 
-        if (false === $this->filesystem->has($pathname)) {
-            throw new \InvalidArgumentException(sprintf('The file "%s" does not exist.', $pathname));
-        }
-
-        return new Response($this->filesystem->get($pathname)->getContent());
+        return new Response($content->getSource());
     }
 }

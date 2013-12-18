@@ -42,14 +42,6 @@ class Configuration implements ConfigurationInterface
                         ->scalarNode('base_path')->end()
                     ->end()
                 ->end()
-                ->arrayNode('dropbox')
-                    ->children()
-                        ->scalarNode('consumer_key')->end()
-                        ->scalarNode('consumer_secret')->end()
-                        ->scalarNode('token')->end()
-                        ->scalarNode('token_secret')->end()
-                    ->end()
-                ->end()
             ->end();
 
         return $builder;

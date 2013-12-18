@@ -11,6 +11,7 @@
 
 namespace Cocur\Bundle\PageBundle\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 use Symfony\Component\HttpFoundation\Response;
 
 use Cocur\Bundle\PageBundle\Content\ContentLoader;
@@ -34,14 +35,21 @@ class PageController
     /** @var CompilerCollection */
     private $compilers;
 
+    /** @var string */
+    private $templating;
+
     /**
      * @param Filesystem $filesystem
      * @param string     $basePath
      */
-    public function __construct(ContentLoader $contentLoader, CompilerCollection $compilers)
-    {
+    public function __construct(
+        ContentLoader $contentLoader,
+        CompilerCollection $compilers,
+        EngineInterface $templating
+    ) {
         $this->contentLoader = $contentLoader;
         $this->compilers = $compilers;
+        $this->templating = $templating;
     }
 
     /**
@@ -60,6 +68,12 @@ class PageController
             );
         }
 
-        return new Response($compiler->compile($content->getSource()));
+        $vars = $content->getOptions();
+        $vars['content'] = $compiler->compile($content->getSource());
+
+        return $this->templating->renderResponse(
+            sprintf('%s.html.twig', $content->hasOption('layout') ? $content->getOption('layout') : 'CocurPageBundle:Layout:default'),
+            $vars
+        );
     }
 }

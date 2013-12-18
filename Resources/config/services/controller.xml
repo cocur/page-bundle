@@ -13,6 +13,7 @@
         <service id="cocur_page.controller.page" class="%cocur_page.controller.page.class%">
             <argument type="service" id="cocur_page.content_loader" />
             <argument type="service" id="cocur_page.content_compiler_collection" />
+            <argument type="service" id="templating" />
         </service>
 
     </services>

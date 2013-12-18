@@ -24,7 +24,9 @@ namespace Cocur\Bundle\PageBundle\Content;
 class Content
 {
     /** @var array */
-    private $options;
+    private $options = [
+        'title' => null
+    ];
 
     /** @var string */
     private $format;
@@ -39,7 +41,7 @@ class Content
      */
     public function setOptions(array $options)
     {
-        $this->options = $options;
+        $this->options = array_merge($this->options, $options);
 
         return $this;
     }
@@ -50,6 +52,34 @@ class Content
     public function getOptions()
     {
         return $this->options;
+    }
+
+    /**
+     * Returns if the option with the given name exists.
+     *
+     * @param string $name Name of an option.
+     *
+     * @return boolean `true` if the option exists, `false` otherwise.
+     */
+    public function hasOption($name)
+    {
+        return isset($this->options[$name]);
+    }
+
+    /**
+     * Returns the option with the given name.
+     *
+     * @param string $name Name of an option.
+     *
+     * @return mixed Value of the option, `null` if the option does not exist.
+     */
+    public function getOption($name)
+    {
+        if (false === $this->hasOption($name)) {
+            return null;
+        }
+
+        return $this->options[$name];
     }
 
     /**

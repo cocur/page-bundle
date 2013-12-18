@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of CocurBlogBundle.
+ * This file is part of CocurPageBundle.
  *
  * (c) 2013 Florian Eckerstorfer <florian@eckerstorfer.co>
  *
@@ -9,12 +9,12 @@
  * with this source code in the file LICENSE.
  */
 
-namespace Cocur\Bundle\BlogBundle\FmParser;
+namespace Cocur\Bundle\PageBundle\FmParser;
 
 /**
  * FmParserFactory
  *
- * @package    cocur/blog-bundle
+ * @package    cocur/page-bundle
  * @subpackage FmParser
  * @author     Florian Eckerstorfer <florian@eckerstorfer.co>
  * @copyright  2013 Florian Eckerstorfer

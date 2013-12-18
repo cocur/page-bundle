@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of CocurBlogBundle.
+ * This file is part of CocurPageBundle.
  *
  * (c) 2013 Florian Eckerstorfer <florian@eckerstorfer.co>
  *
@@ -9,16 +9,16 @@
  * with this source code in the file LICENSE.
  */
 
-namespace Cocur\Bundle\BlogBundle\Controller;
+namespace Cocur\Bundle\PageBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
 
-use Cocur\Bundle\BlogBundle\Content\ContentLoader;
+use Cocur\Bundle\PageBundle\Content\ContentLoader;
 
 /**
  * PageController
  *
- * @package    cocur/blog-bundle
+ * @package    cocur/page-bundle
  * @subpackage Controller
  * @author     Florian Eckerstorfer <florian@eckerstorfer.co>
  * @copyright  2013 Florian Eckerstorfer

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of CocurBlogBundle.
+ * This file is part of CocurPageBundle.
  *
  * (c) 2013 Florian Eckerstorfer <florian@eckerstorfer.co>
  *
@@ -9,17 +9,17 @@
  * with this source code in the file LICENSE.
  */
 
-namespace Cocur\Bundle\BlogBundle\Content;
+namespace Cocur\Bundle\PageBundle\Content;
 
 use Gaufrette\Filesystem;
 
-use Cocur\Bundle\BlogBundle\Exception\FileNotExistsException;
-use Cocur\Bundle\BlogBundle\FmParser\FmParserFactory;
+use Cocur\Bundle\PageBundle\Exception\FileNotExistsException;
+use Cocur\Bundle\PageBundle\FmParser\FmParserFactory;
 
 /**
  * ContentLoader
  *
- * @package    cocur/blog-bundle
+ * @package    cocur/page-bundle
  * @subpackage Content
  * @author     Florian Eckerstorfer <florian@eckerstorfer.co>
  * @copyright  2013 Florian Eckerstorfer

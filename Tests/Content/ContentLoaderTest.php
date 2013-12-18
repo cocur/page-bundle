@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of CocurBlogBundle.
+ * This file is part of CocurPageBundle.
  *
  * (c) 2013 Florian Eckerstorfer <florian@eckerstorfer.co>
  *
@@ -9,17 +9,17 @@
  * with this source code in the file LICENSE.
  */
 
-namespace Cocur\Bundle\BlogBundle\Tests\Content;
+namespace Cocur\Bundle\PageBundle\Tests\Content;
 
 use \Mockery as m;
 
-use Cocur\Bundle\BlogBundle\Content\ContentLoader;
+use Cocur\Bundle\PageBundle\Content\ContentLoader;
 
 /**
  * ContentLoaderTest
  *
  * @category   Test
- * @package    cocur/blog-bundle
+ * @package    cocur/page-bundle
  * @subpackage Content
  * @author     Florian Eckerstorfer <florian@eckerstorfer.co>
  * @copyright  2013 Florian Eckerstorfer
@@ -44,10 +44,10 @@ class ContentLoaderTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      *
-     * @covers Cocur\Bundle\BlogBundle\Content\ContentLoader::load()
-     * @covers Cocur\Bundle\BlogBundle\Content\ContentLoader::getPathname()
-     * @covers Cocur\Bundle\BlogBundle\Content\ContentLoader::getOptions()
-     * @covers Cocur\Bundle\BlogBundle\Content\ContentLoader::getSource()
+     * @covers Cocur\Bundle\PageBundle\Content\ContentLoader::load()
+     * @covers Cocur\Bundle\PageBundle\Content\ContentLoader::getPathname()
+     * @covers Cocur\Bundle\PageBundle\Content\ContentLoader::getOptions()
+     * @covers Cocur\Bundle\PageBundle\Content\ContentLoader::getSource()
      */
     public function loadShoulLoadContentWithDefaultFrontMatterParser()
     {
@@ -70,7 +70,7 @@ class ContentLoaderTest extends \PHPUnit_Framework_TestCase
 
         $content = $this->loader->load('file1.txt');
 
-        $this->assertInstanceOf('Cocur\Bundle\BlogBundle\Content\Content', $content);
+        $this->assertInstanceOf('Cocur\Bundle\PageBundle\Content\Content', $content);
         $this->assertEquals("foobar\n", $content->getSource());
         $this->assertEquals(['key1' => 'foo', 'key2' => 'bar'], $content->getOptions());
     }
@@ -78,10 +78,10 @@ class ContentLoaderTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      *
-     * @covers Cocur\Bundle\BlogBundle\Content\ContentLoader::load()
-     * @covers Cocur\Bundle\BlogBundle\Content\ContentLoader::getPathname()
+     * @covers Cocur\Bundle\PageBundle\Content\ContentLoader::load()
+     * @covers Cocur\Bundle\PageBundle\Content\ContentLoader::getPathname()
      *
-     * @expectedException Cocur\Bundle\BlogBundle\Exception\FileNotExistsException
+     * @expectedException Cocur\Bundle\PageBundle\Exception\FileNotExistsException
      */
     public function loadShouldThrowExceptionIfFileDoesNotExists()
     {
@@ -92,10 +92,10 @@ class ContentLoaderTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      *
-     * @covers Cocur\Bundle\BlogBundle\Content\ContentLoader::load()
-     * @covers Cocur\Bundle\BlogBundle\Content\ContentLoader::getPathname()
-     * @covers Cocur\Bundle\BlogBundle\Content\ContentLoader::getOptions()
-     * @covers Cocur\Bundle\BlogBundle\Content\ContentLoader::getSource()
+     * @covers Cocur\Bundle\PageBundle\Content\ContentLoader::load()
+     * @covers Cocur\Bundle\PageBundle\Content\ContentLoader::getPathname()
+     * @covers Cocur\Bundle\PageBundle\Content\ContentLoader::getOptions()
+     * @covers Cocur\Bundle\PageBundle\Content\ContentLoader::getSource()
      */
     public function loadShoulLoadContentWithoutFrontMatter()
     {
@@ -108,7 +108,7 @@ class ContentLoaderTest extends \PHPUnit_Framework_TestCase
 
         $content = $this->loader->load('file1.txt');
 
-        $this->assertInstanceOf('Cocur\Bundle\BlogBundle\Content\Content', $content);
+        $this->assertInstanceOf('Cocur\Bundle\PageBundle\Content\Content', $content);
         $this->assertEquals("foobar\n", $content->getSource());
         $this->assertEquals([], $content->getOptions());
     }
@@ -116,9 +116,9 @@ class ContentLoaderTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      *
-     * @covers Cocur\Bundle\BlogBundle\Content\ContentLoader::load()
-     * @covers Cocur\Bundle\BlogBundle\Content\ContentLoader::getPathname()
-     * @covers Cocur\Bundle\BlogBundle\Content\ContentLoader::getOptions()
+     * @covers Cocur\Bundle\PageBundle\Content\ContentLoader::load()
+     * @covers Cocur\Bundle\PageBundle\Content\ContentLoader::getPathname()
+     * @covers Cocur\Bundle\PageBundle\Content\ContentLoader::getOptions()
      *
      * @expectedException \RuntimeException
      */
@@ -145,18 +145,18 @@ class ContentLoaderTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return Cocur\Bundle\BlogBundle\FmParser\FmParserFactory
+     * @return Cocur\Bundle\PageBundle\FmParser\FmParserFactory
      */
     protected function getMockFmParserFactory()
     {
-        return m::mock('Cocur\Bundle\BlogBundle\FmParser\FmParserFactory');
+        return m::mock('Cocur\Bundle\PageBundle\FmParser\FmParserFactory');
     }
 
     /**
-     * @return Cocur\Bundle\BlogBundle\FmParser\FmParserInterface
+     * @return Cocur\Bundle\PageBundle\FmParser\FmParserInterface
      */
     protected function getMockFmParser()
     {
-        return m::mock('Cocur\Bundle\BlogBundle\FmParser\FmParserInterface');
+        return m::mock('Cocur\Bundle\PageBundle\FmParser\FmParserInterface');
     }
 }

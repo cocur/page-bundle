@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of CocurBlogBundle.
+ * This file is part of CocurPageBundle.
  *
  * (c) 2013 Florian Eckerstorfer <florian@eckerstorfer.co>
  *
@@ -9,15 +9,15 @@
  * with this source code in the file LICENSE.
  */
 
-namespace Cocur\Bundle\BlogBundle\Tests\Content;
+namespace Cocur\Bundle\PageBundle\Tests\Content;
 
-use Cocur\Bundle\BlogBundle\Content\Content;
+use Cocur\Bundle\PageBundle\Content\Content;
 
 /**
  * ContentTest
  *
  * @category   Test
- * @package    cocur/blog-bundle
+ * @package    cocur/page-bundle
  * @subpackage Content
  * @author     Florian Eckerstorfer <florian@eckerstorfer.co>
  * @copyright  2013 Florian Eckerstorfer
@@ -38,8 +38,8 @@ class ContentTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      *
-     * @covers Cocur\Bundle\BlogBundle\Content\Content::setOptions()
-     * @covers Cocur\Bundle\BlogBundle\Content\Content::getOptions()
+     * @covers Cocur\Bundle\PageBundle\Content\Content::setOptions()
+     * @covers Cocur\Bundle\PageBundle\Content\Content::getOptions()
      */
     public function setOptionsShouldSetOptions()
     {
@@ -50,8 +50,8 @@ class ContentTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      *
-     * @covers Cocur\Bundle\BlogBundle\Content\Content::setSource()
-     * @covers Cocur\Bundle\BlogBundle\Content\Content::getSource()
+     * @covers Cocur\Bundle\PageBundle\Content\Content::setSource()
+     * @covers Cocur\Bundle\PageBundle\Content\Content::getSource()
      */
     public function setSourceShouldSetSource()
     {

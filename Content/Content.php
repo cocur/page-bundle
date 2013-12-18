@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of cocur/blog-bundle.
+ * This file is part of cocur/page-bundle.
  *
  * (c) 2013 Florian Eckerstorfer <florian@eckerstorfer.co>
  *
@@ -9,12 +9,12 @@
  * with this source code in the file LICENSE.
  */
 
-namespace Cocur\Bundle\BlogBundle\Content;
+namespace Cocur\Bundle\PageBundle\Content;
 
 /**
  * Content
  *
- * @package    cocur/blog-bundle
+ * @package    cocur/page-bundle
  * @subpackage Content
  * @author     Florian Eckerstorfer <florian@eckerstorfer.co>
  * @copyright  2013 Florian Eckerstorfer

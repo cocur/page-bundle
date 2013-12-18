@@ -5,15 +5,15 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
-        <parameter key="cocur_blog.content_loader.class">Cocur\Bundle\BlogBundle\Content\ContentLoader</parameter>
+        <parameter key="cocur_page.content_loader.class">Cocur\Bundle\PageBundle\Content\ContentLoader</parameter>
     </parameters>
 
     <services>
 
-        <service id="cocur_blog.content_loader" class="%cocur_blog.content_loader.class%">
+        <service id="cocur_page.content_loader" class="%cocur_page.content_loader.class%">
             <argument type="service" id="blog_storage_filesystem" />
-            <argument>%cocur_blog.storage.base_path%</argument>
-            <argument type="service" id="cocur_blog.fm_parser_factory" />
+            <argument>%cocur_page.storage.base_path%</argument>
+            <argument type="service" id="cocur_page.fm_parser_factory" />
         </service>
 
     </services>

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of CocurBlogBundle.
+ * This file is part of CocurPageBundle.
  *
  * (c) 2013 Florian Eckerstorfer <florian@eckerstorfer.co>
  *
@@ -9,7 +9,7 @@
  * with this source code in the file LICENSE.
  */
 
-namespace Cocur\Bundle\BlogBundle\DependencyInjection;
+namespace Cocur\Bundle\PageBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -19,9 +19,9 @@ use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
 /**
- * CocurBlogExtension
+ * CocurPageExtension
  *
- * @package    cocur/blog-bundle
+ * @package    cocur/page-bundle
  * @subpackage DependencyInjection
  * @author     Florian Eckerstorfer <florian@eckerstorfer.co>
  * @copyright  2013 Florian Eckerstorfer
@@ -30,7 +30,7 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
  *
  * @codeCoverageIgnore
  */
-class CocurBlogExtension extends Extension
+class CocurPageExtension extends Extension
 {
     /**
      * {@inheritDoc}
@@ -45,6 +45,6 @@ class CocurBlogExtension extends Extension
             $loader->load(sprintf('%s.xml', $key));
         }
 
-        $container->setParameter('cocur_blog.storage.base_path', $config['storage']['base_path']);
+        $container->setParameter('cocur_page.storage.base_path', $config['storage']['base_path']);
     }
 }

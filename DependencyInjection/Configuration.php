@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of CocurBlogBundle.
+ * This file is part of CocurPageBundle.
  *
  * (c) 2013 Florian Eckerstorfer <florian@eckerstorfer.co>
  *
@@ -9,7 +9,7 @@
  * with this source code in the file LICENSE.
  */
 
-namespace Cocur\Bundle\BlogBundle\DependencyInjection;
+namespace Cocur\Bundle\PageBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -17,7 +17,7 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
 /**
  * Configuration
  *
- * @package    cocur/blog-bundle
+ * @package    cocur/page-bundle
  * @subpackage DependencyInjection
  * @author     Florian Eckerstorfer <florian@eckerstorfer.co>
  * @copyright  2013 Florian Eckerstorfer
@@ -35,7 +35,7 @@ class Configuration implements ConfigurationInterface
     {
         $builder = new TreeBuilder();
 
-        $builder->root('cocur_blog')
+        $builder->root('cocur_page')
             ->children()
                 ->arrayNode('storage')
                     ->children()

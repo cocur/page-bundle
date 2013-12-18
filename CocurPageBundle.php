@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of CocurBlogBundle.
+ * This file is part of CocurPageBundle.
  *
  * (c) 2013 Florian Eckerstorfer <florian@eckerstorfer.co>
  *
@@ -9,17 +9,17 @@
  * with this source code in the file LICENSE.
  */
 
-namespace Cocur\Bundle\BlogBundle;
+namespace Cocur\Bundle\PageBundle;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-use Cocur\Bundle\BlogBundle\DependencyInjection\Compiler\FmParserPass;
+use Cocur\Bundle\PageBundle\DependencyInjection\Compiler\FmParserPass;
 
 /**
- * CocurBlogBundle
+ * CocurPageBundle
  *
- * @package   cocur/blog-bundle
+ * @package   cocur/page-bundle
  * @author    Florian Eckerstorfer <florian@eckerstorfer.co>
  * @copyright 2013 Florian Eckerstorfer
  * @license   http://opensource.org/licenses/MIT The MIT License
@@ -27,7 +27,7 @@ use Cocur\Bundle\BlogBundle\DependencyInjection\Compiler\FmParserPass;
  *
  * @codeCoverageIgnore
  */
-class CocurBlogBundle extends Bundle
+class CocurPageBundle extends Bundle
 {
     /**
      * {@inheritDoc}

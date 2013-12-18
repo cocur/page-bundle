@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of CocurBlogBundle.
+ * This file is part of CocurPageBundle.
  *
  * (c) 2013 Florian Eckerstorfer <florian@eckerstorfer.co>
  *
@@ -9,15 +9,15 @@
  * with this source code in the file LICENSE.
  */
 
-namespace Cocur\Bundle\BlogBundle\Tests\FmParser;
+namespace Cocur\Bundle\PageBundle\Tests\FmParser;
 
-use Cocur\Bundle\BlogBundle\FmParser\JsonFmParser;
+use Cocur\Bundle\PageBundle\FmParser\JsonFmParser;
 
 /**
  * JsonFmParserTest
  *
  * @category   Test
- * @package    cocur/blog-bundle
+ * @package    cocur/page-bundle
  * @subpackage FmParser
  * @author     Florian Eckerstorfer <florian@eckerstorfer.co>
  * @copyright  2013 Florian Eckerstorfer
@@ -38,7 +38,7 @@ class JsonFmParserTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      *
-     * @covers Cocur\Bundle\BlogBundle\FmParser\JsonFmParser::parse()
+     * @covers Cocur\Bundle\PageBundle\FmParser\JsonFmParser::parse()
      */
     public function parseShouldParseYamlFm()
     {
@@ -49,7 +49,7 @@ class JsonFmParserTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      *
-     * @covers Cocur\Bundle\BlogBundle\FmParser\JsonFmParser::getFormat()
+     * @covers Cocur\Bundle\PageBundle\FmParser\JsonFmParser::getFormat()
      */
     public function getFormatShouldReturnFormat()
     {

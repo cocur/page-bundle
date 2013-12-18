@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of CocurBlogBundle.
+ * This file is part of CocurPageBundle.
  *
  * (c) 2013 Florian Eckerstorfer <florian@eckerstorfer.co>
  *
@@ -9,17 +9,17 @@
  * with this source code in the file LICENSE.
  */
 
-namespace Cocur\Bundle\BlogBundle\Tests\FmParser;
+namespace Cocur\Bundle\PageBundle\Tests\FmParser;
 
 use \Mockery as m;
 
-use Cocur\Bundle\BlogBundle\FmParser\FmParserFactory;
+use Cocur\Bundle\PageBundle\FmParser\FmParserFactory;
 
 /**
  * FmParserFactoryTest
  *
  * @category   Test
- * @package    cocur/blog-bundle
+ * @package    cocur/page-bundle
  * @subpackage FmParser
  * @author     Florian Eckerstorfer <florian@eckerstorfer.co>
  * @copyright  2013 Florian Eckerstorfer
@@ -40,13 +40,13 @@ class FmParserFactoryTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      *
-     * @covers Cocur\Bundle\BlogBundle\FmParser\FmParserFactory::add()
-     * @covers Cocur\Bundle\BlogBundle\FmParser\FmParserFactory::has()
-     * @covers Cocur\Bundle\BlogBundle\FmParser\FmParserFactory::get()
+     * @covers Cocur\Bundle\PageBundle\FmParser\FmParserFactory::add()
+     * @covers Cocur\Bundle\PageBundle\FmParser\FmParserFactory::has()
+     * @covers Cocur\Bundle\PageBundle\FmParser\FmParserFactory::get()
      */
     public function addShouldAddParserToFactory()
     {
-        $parser = m::mock('Cocur\Bundle\BlogBundle\FmParser\FmParserInterface');
+        $parser = m::mock('Cocur\Bundle\PageBundle\FmParser\FmParserInterface');
 
         $this->factory->add($parser, 'foo');
 
@@ -57,13 +57,13 @@ class FmParserFactoryTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      *
-     * @covers Cocur\Bundle\BlogBundle\FmParser\FmParserFactory::add()
-     * @covers Cocur\Bundle\BlogBundle\FmParser\FmParserFactory::has()
-     * @covers Cocur\Bundle\BlogBundle\FmParser\FmParserFactory::get()
+     * @covers Cocur\Bundle\PageBundle\FmParser\FmParserFactory::add()
+     * @covers Cocur\Bundle\PageBundle\FmParser\FmParserFactory::has()
+     * @covers Cocur\Bundle\PageBundle\FmParser\FmParserFactory::get()
      */
     public function addShouldGetFormatFromParser()
     {
-        $parser = m::mock('Cocur\Bundle\BlogBundle\FmParser\FmParserInterface');
+        $parser = m::mock('Cocur\Bundle\PageBundle\FmParser\FmParserInterface');
         $parser->shouldReceive('getFormat')->withNoArgs()->once()->andReturn('foo');
 
         $this->factory->add($parser);

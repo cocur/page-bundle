@@ -5,13 +5,13 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
-        <parameter key="cocur_blog.controller.page.class">Cocur\Bundle\BlogBundle\Controller\PageController</parameter>
+        <parameter key="cocur_page.controller.page.class">Cocur\Bundle\PageBundle\Controller\PageController</parameter>
     </parameters>
 
     <services>
 
-        <service id="cocur_blog.controller.page" class="%cocur_blog.controller.page.class%">
-            <argument type="service" id="cocur_blog.content_loader" />
+        <service id="cocur_page.controller.page" class="%cocur_page.controller.page.class%">
+            <argument type="service" id="cocur_page.content_loader" />
         </service>
 
     </services>

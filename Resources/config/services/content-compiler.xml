@@ -11,6 +11,8 @@
         <parameter key="cocur_page.content_compiler.markdown.class">Cocur\Bundle\PageBundle\ContentCompiler\MarkdownCompiler</parameter>
         <parameter key="cocur_page.content_compiler.markdown_extra.class">Cocur\Bundle\PageBundle\ContentCompiler\MarkdownExtraCompiler</parameter>
         <parameter key="cocur_page.content_compiler.plain.class">Cocur\Bundle\PageBundle\ContentCompiler\PlainCompiler</parameter>
+        <parameter key="cocur_page.content_compiler.html.class">Cocur\Bundle\PageBundle\ContentCompiler\HtmlCompiler</parameter>
+
     </parameters>
 
     <services>
@@ -27,6 +29,10 @@
         </service>
 
         <service id="cocur_page.content_compiler.plain" class="%cocur_page.content_compiler.plain.class%">
+            <tag name="cocur.content_compiler" />
+        </service>
+
+        <service id="cocur_page.content_compiler.html" class="%cocur_page.content_compiler.html.class%">
             <tag name="cocur.content_compiler" />
         </service>
 

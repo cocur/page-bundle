@@ -3,6 +3,10 @@ CocurPageBundle
 
 Loads content from a [Gaufrette](https://github.com/KnpLabs/Gaufrette) filesystem, compiles various markup languages into HTML and renders pages using a [Symfony2 Templating](https://github.com/symfony/Templating) compatible engine.
 
+[![Build Status](https://travis-ci.org/cocur/page-bundle.png?branch=master)](https://travis-ci.org/cocur/page-bundle)
+[![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/cocur/page-bundle/badges/quality-score.png?s=c5624aea97041219d02f05b321e9f19bdc3a15a7)](https://scrutinizer-ci.com/g/cocur/page-bundle/)
+[![Code Coverage](https://scrutinizer-ci.com/g/cocur/page-bundle/badges/coverage.png?s=9579c8d4940c5f87835d559a4350c4b767805a7d)](https://scrutinizer-ci.com/g/cocur/page-bundle/)
+
 
 Features
 --------

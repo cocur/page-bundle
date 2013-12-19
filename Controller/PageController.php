@@ -39,8 +39,13 @@ class PageController
     private $templating;
 
     /**
-     * @param Filesystem $filesystem
-     * @param string     $basePath
+     * Constructor.
+     *
+     * @param ContentLoader      $contentLoader
+     * @param CompilerCollection $compilers
+     * @param EngineInterface    $templating
+     *
+     * @codeCoverageIgnore
      */
     public function __construct(
         ContentLoader $contentLoader,
@@ -48,8 +53,8 @@ class PageController
         EngineInterface $templating
     ) {
         $this->contentLoader = $contentLoader;
-        $this->compilers = $compilers;
-        $this->templating = $templating;
+        $this->compilers     = $compilers;
+        $this->templating    = $templating;
     }
 
     /**

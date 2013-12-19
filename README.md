@@ -66,3 +66,5 @@ License
 -------
 
 This package is subject to the MIT license that is bundled with this package in the file LICENSE.
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/cocur/page-bundle/trend.png)](https://bitdeli.com/free "Bitdeli Badge")

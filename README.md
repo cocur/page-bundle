@@ -33,11 +33,11 @@ The front matter are options for a page or piece of content. Currently the follo
 ### Compilers
 
 CocurPageBundle supports a number of different markup systems to write content in. Compilers take the markup and
-generate the HTML. The following formats are currently supported:
+generate the HTML. The compiler is selected on a per file basis depending on the file extension. The following formats are currently supported:
 
-- Markdown and Markdown Extra
-- HTML
-- Plain text
+- Markdown (`.md` and `.markdown`) and Markdown Extra (`.mdx`)
+- HTML (`.htm` and `.html`)
+- Plain text (`.txt`)
 
 ### Renderes
 

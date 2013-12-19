@@ -48,6 +48,7 @@ class ContentLoaderTest extends \PHPUnit_Framework_TestCase
      * @covers Cocur\Bundle\PageBundle\Content\ContentLoader::getPathname()
      * @covers Cocur\Bundle\PageBundle\Content\ContentLoader::getOptions()
      * @covers Cocur\Bundle\PageBundle\Content\ContentLoader::getSource()
+     * @covers Cocur\Bundle\PageBundle\Content\ContentLoader::getFormat()
      */
     public function loadShoulLoadContentWithDefaultFrontMatterParser()
     {
@@ -63,7 +64,7 @@ class ContentLoaderTest extends \PHPUnit_Framework_TestCase
             ->shouldReceive('parse')
             ->with("key1: foo\nkey2: bar\n")
             ->once()
-            ->andReturn(['key1' => 'foo', 'key2' => 'bar']);
+            ->andReturn(['key1' => 'foo', 'key2' => 'bar' ]);
 
         $this->fmParserFactory->shouldReceive('has')->with('yaml')->once()->andReturn(true);
         $this->fmParserFactory->shouldReceive('get')->with('yaml')->once()->andReturn($parser);
@@ -72,7 +73,8 @@ class ContentLoaderTest extends \PHPUnit_Framework_TestCase
 
         $this->assertInstanceOf('Cocur\Bundle\PageBundle\Content\Content', $content);
         $this->assertEquals("foobar\n", $content->getSource());
-        $this->assertEquals(['key1' => 'foo', 'key2' => 'bar'], $content->getOptions());
+        $this->assertEquals([ 'key1' => 'foo', 'key2' => 'bar', 'title' => null ], $content->getOptions());
+        $this->assertEquals('txt', $content->getFormat());
     }
 
     /**
@@ -96,6 +98,7 @@ class ContentLoaderTest extends \PHPUnit_Framework_TestCase
      * @covers Cocur\Bundle\PageBundle\Content\ContentLoader::getPathname()
      * @covers Cocur\Bundle\PageBundle\Content\ContentLoader::getOptions()
      * @covers Cocur\Bundle\PageBundle\Content\ContentLoader::getSource()
+     * @covers Cocur\Bundle\PageBundle\Content\ContentLoader::getFormat()
      */
     public function loadShoulLoadContentWithoutFrontMatter()
     {
@@ -110,7 +113,8 @@ class ContentLoaderTest extends \PHPUnit_Framework_TestCase
 
         $this->assertInstanceOf('Cocur\Bundle\PageBundle\Content\Content', $content);
         $this->assertEquals("foobar\n", $content->getSource());
-        $this->assertEquals([], $content->getOptions());
+        $this->assertEquals([ 'title' => null ], $content->getOptions());
+        $this->assertEquals('txt', $content->getFormat());
     }
 
     /**

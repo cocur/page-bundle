@@ -44,7 +44,43 @@ class ContentTest extends \PHPUnit_Framework_TestCase
     public function setOptionsShouldSetOptions()
     {
         $this->content->setOptions([ 'key' => 'value' ]);
-        $this->assertEquals([ 'key' => 'value' ], $this->content->getOptions());
+        $this->assertEquals([ 'key' => 'value', 'title' => null ], $this->content->getOptions());
+    }
+
+    /**
+     * @test
+     *
+     * @covers Cocur\Bundle\PageBundle\Content\Content::hasOption()
+     */
+    public function hasOptionShouldReturnIfOptionExists()
+    {
+        $this->content->setOptions([ 'key' => 'value' ]);
+        $this->assertTrue($this->content->hasOption('key'));
+        $this->assertFalse($this->content->hasOption('invalid'));
+    }
+
+    /**
+     * @test
+     *
+     * @covers Cocur\Bundle\PageBundle\Content\Content::getOption()
+     */
+    public function getOptionShouldReturnOptionValue()
+    {
+        $this->content->setOptions([ 'key' => 'value' ]);
+        $this->assertEquals('value', $this->content->getOption('key'));
+        $this->assertNull($this->content->getOption('invalid'));
+    }
+
+    /**
+     * @test
+     *
+     * @covers Cocur\Bundle\PageBundle\Content\Content::setFormat()
+     * @covers Cocur\Bundle\PageBundle\Content\Content::getFormat()
+     */
+    public function setFormatShouldSetFormat()
+    {
+        $this->content->setFormat('md');
+        $this->assertEquals('md', $this->content->getFormat());
     }
 
     /**
